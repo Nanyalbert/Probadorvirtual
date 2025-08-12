@@ -17,14 +17,12 @@
       device-orientation-permission-ui="enabled: false"
     >
       <a-assets>
-        <!-- Occluder de cabeza para ocultar el modelo detrás -->
         <a-asset-item id="headModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/face-tracking/assets/sparkar/headOccluder.glb"></a-asset-item>
-        <!-- Tu modelo glb alojado en GitHub RAW -->
         <a-asset-item id="glassesModel" src="https://raw.githubusercontent.com/Nanyalbert/Probadorvirtual/main/PalermoCarey.glb"></a-asset-item>
       </a-assets>
 
-      <!-- Cámara fija, sin controles para evitar mover la escena -->
-      <a-camera active="true" position="0 0 0"></a-camera>
+      <!-- Cámara fija sin controles -->
+      <a-camera position="0 0 0" look-controls="enabled: false" wasd-controls-enabled="false"></a-camera>
 
       <!-- Head occluder -->
       <a-entity mindar-face-target="anchorIndex: 168">
@@ -50,5 +48,4 @@
     </a-scene>
   </body>
 </html>
-
 
