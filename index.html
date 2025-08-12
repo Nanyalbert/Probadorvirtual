@@ -17,13 +17,14 @@
       device-orientation-permission-ui="enabled: false"
     >
       <a-assets>
+        <a-asset-item id="headModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/face-tracking/assets/sparkar/headOccluder.glb"></a-asset-item>
         <a-asset-item id="glassesModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/face-tracking/assets/glasses/scene.gltf"></a-asset-item>
       </a-assets>
 
-      <!-- Cámara fija sin controles -->
-      <a-camera active="true" position="0 0 0"></a-camera>
+      <!-- Usar la cámara interna de MindAR (sin look-controls ni giroscopio) -->
+      <a-camera active="false" look-controls="enabled: false" wasd-controls="enabled: false"></a-camera>
 
-      <!-- Occluder para que la cabeza real tape el objeto 3D detrás -->
+      <!-- Occluder -->
       <a-entity mindar-face-target="anchorIndex: 168">
         <a-gltf-model
           mindar-face-occluder
@@ -35,14 +36,13 @@
         ></a-gltf-model>
       </a-entity>
 
-      <!-- Gafas ancladas a la cara -->
+      <!-- Lentes anclados -->
       <a-entity mindar-face-target="anchorIndex: 168">
         <a-gltf-model
           src="#glassesModel"
           rotation="0 0 0"
           position="0 0 0"
           scale="0.01 0.01 0.01"
-          visible="true"
         ></a-gltf-model>
       </a-entity>
     </a-scene>
