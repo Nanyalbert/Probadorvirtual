@@ -17,35 +17,38 @@
       device-orientation-permission-ui="enabled: false"
     >
       <a-assets>
+        <!-- Occluder de cabeza para ocultar el modelo detrás -->
         <a-asset-item id="headModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/face-tracking/assets/sparkar/headOccluder.glb"></a-asset-item>
+        <!-- Tu modelo glb alojado en GitHub RAW -->
         <a-asset-item id="glassesModel" src="https://raw.githubusercontent.com/Nanyalbert/Probadorvirtual/main/PalermoCarey.glb"></a-asset-item>
       </a-assets>
 
-      <!-- Usar la cámara interna de MindAR (sin look-controls ni giroscopio) -->
-      <a-camera active="false" look-controls="enabled: false" wasd-controls="enabled: false"></a-camera>
+      <!-- Cámara fija, sin controles para evitar mover la escena -->
+      <a-camera active="true" position="0 0 0"></a-camera>
 
-      <!-- Occluder -->
+      <!-- Head occluder -->
       <a-entity mindar-face-target="anchorIndex: 168">
         <a-gltf-model
           mindar-face-occluder
-          position="0 0 0.15"
+          src="#headModel"
+          position="0 -0.3 0.15"
           rotation="0 0 0"
           scale="0.065 0.065 0.065"
-          src="#headModel"
-          visible="false"
         ></a-gltf-model>
       </a-entity>
 
-      <!-- Lentes anclados -->
+      <!-- Modelo de lentes anclado a la cara -->
       <a-entity mindar-face-target="anchorIndex: 168">
         <a-gltf-model
           src="#glassesModel"
-          rotation="0 0 0"
           position="0 0 0"
-          scale="1.1 1.1 1.1"
+          rotation="0 0 0"
+          scale="1 1 1"
+          visible="true"
         ></a-gltf-model>
       </a-entity>
     </a-scene>
   </body>
 </html>
+
 
